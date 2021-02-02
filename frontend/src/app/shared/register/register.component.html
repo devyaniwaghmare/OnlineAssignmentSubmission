@@ -1,0 +1,99 @@
+<p>register works!</p>
+<div class="container-fluid col-20" id="div1">
+
+    <form #userForm="ngForm" novalidate (ngSubmit)="onSubmit()">
+      <h5>Registration</h5>
+       <hr>
+        <div class="form-inline">
+
+            <div class="form-group ">
+                <input placeholder="Firstname" type="text" #fname="ngModel" required class="form-control input-sm" name="firstName" 
+                [(ngModel)]="userModel.firstName" 
+                [class.is-invalid]="fname.invalid && fname.touched">
+                <small class="text-danger" [class.d-none]="fname.valid || fname.untouched">Firstname is required</small>
+                
+             </div>
+             <div class="form-group   mx-sm-5">
+                 <input placeholder="Lastname" type="text" #lname="ngModel" required class="form-control" name="lastName" 
+                 [(ngModel)]="userModel.lastName"
+                 [class.is-invalid]="lname.invalid && lname.touched">
+                 <small class="text-danger" [class.d-none]="lname.valid || lname.untouched">Lastname is required</small>
+              </div>
+
+        </div>
+       
+    <br>
+         <div class="form-group">
+         
+            <input type="text" #phone="ngModel" pattern="^\d{10}$" required 
+            class="form-control" name="phone" [(ngModel)]="userModel.phone"
+            [class.is-invalid]="phone.invalid && phone.touched" placeholder="Phone Number">
+           
+            <div *ngIf="phone.errors && (phone.invalid || phone.touched)">
+              <small class="text-danger" *ngIf="phone.errors.required && phone.touched">Phone number is required</small>
+              <small class="text-danger" *ngIf="phone.errors.pattern">Phone number must contains 10 digits</small>
+            </div>
+        </div>
+    
+    
+    
+        <label>Gender</label>
+           <div class="form-check">
+             <input type="radio" class="form-check-input" name="gender" required  #gender="ngModel"
+             value="male" [(ngModel)]="userModel.gender"
+             [class.is-invalid]="gender.invalid && gender.touched">
+             <label>Male</label>
+           </div>
+           <div class="form-check">
+             <input type="radio" class="form-check-input" name="gender" required #gender="ngModel"
+             value="female" [(ngModel)]="userModel.gender"
+             [class.is-invalid]="gender.invalid && gender.touched">
+             <label>Female</label>
+           </div>
+    
+    
+        
+           <div class="form-inline">
+            <div class="form-group">
+                <label>Role</label>
+                <select  (blur)="validateType(type.value)" (change)="validateType(type.value)"
+                class="custom-select" required #type="ngModel" name="type" [(ngModel)]="role"
+                [class.is-invalid]="typeHasError && type.touched" value="Select Role">
+                    <option value="default" select>Select Role</option>
+                    <option *ngFor="let c of types">{{ c }}</option>
+                </select>
+                <small class="text-danger" [class.d-none]="!typeHasError || type.untouched">Please select Role</small>
+           </div>
+           <div class="form-group" *ngIf="show"> 
+            <label>Course</label>
+            <select  (blur)="validateCourse(course.value)" (change)="validateCourse(course.value)"
+            class="custom-select mx-sm-5" required #course="ngModel" name="course" [(ngModel)]="userModel.course"
+            [class.is-invalid]="courseHasError && course.touched">
+                <option value="default" select>Select Course</option>
+                <option *ngFor="let c of cources">{{ c.courseName }}</option>
+            </select>
+            <small class="text-danger" [class.d-none]="!courseHasError || course.untouched">Please select course</small>
+           </div>
+           </div>
+            
+           <br>
+       
+        
+    
+         <div class="form-group">
+            
+            <input type="email" class="form-control" name="emailId" [(ngModel)]="userModel.emailId"
+            #emailId="ngModel" required [class.is-invalid]="emailId.invalid && emailId.touched"
+            placeholder="Email">
+            <small class="text-danger" [class.d-none]="emailId.valid || emailId.untouched">Please Enter EmailId</small>
+         </div>
+    
+         <div class="form-group">
+            <input type="password" class="form-control" name="password" [(ngModel)]="userModel.password"
+            #password="ngModel" required [class.is-invalid]="password.invalid && password.touched"
+            placeholder="Password">
+            <small class="text-danger" [class.d-none]="password.valid || password.untouched">Please Enter Password</small>
+         </div>
+    <br>
+         <button [disabled]="userForm.form.invalid || courseHasError" class="btn btn-primary btn-block" type="submit">Register</button>
+    </form>

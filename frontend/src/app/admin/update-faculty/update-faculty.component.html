@@ -1,0 +1,36 @@
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item active" aria-current="page">UPDATE FACULTY DETAILS</li>
+    </ol>
+  </nav>
+<form>
+    <div class="form-group">
+        <label for="fid">Id</label>
+        <input type="text" class="form-control" id="fid"  placeholder="{{facultyId}}" name="fid" [(ngModel)]="facultyId">
+      </div>
+    <div class="form-group">
+      <label for="firstName">First Name</label>
+      <input type="text" class="form-control" id="firstName"  placeholder="{{firstName}}" name="firstName" [(ngModel)]="firstName">
+    </div>
+    <div class="form-group">
+      <label for="lastName">Last Name</label>
+      <input type="text" class="form-control" id="lastName" placeholder="{{lastName}}" name="lastName" [(ngModel)]="lastName">
+    </div>
+    <div class="form-group">
+        <label for="emailId">EMAIL ID</label>
+        <input type="text" class="form-control" id="emailId"  placeholder="{{emailId}}" name="emailId" [(ngModel)]="emailId">
+      </div>
+      <div class="form-group">
+        <label for="phone">Phone No.</label>
+        <input type="text" class="form-control" id="phone" placeholder="{{phone}}" name="Phone" [(ngModel)]="phone">
+      </div>
+      <div class="form-group">
+        <label for="DOB">Birth Date</label>
+        <input type="date" class="form-control" id="DOB" placeholder="{{DOB}}" name="DOB"   [(ngModel)]="DOB">
+      </div>
+      <div class="form-group">
+        <label for="gender">Gender</label>
+        <input type="text" class="form-control" id="gender" placeholder="{{gender}}" name="gender" [(ngModel)]="gender">
+      </div>
+    <button type="submit" class="btn btn-success" (click)="updateFaculty()" >Update</button>
+  </form>

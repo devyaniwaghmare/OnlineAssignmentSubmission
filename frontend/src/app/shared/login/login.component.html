@@ -1,0 +1,20 @@
+
+<div class="container-fluid bg">
+  <div class="row justify-content-center">
+    <div class="col-12 col-sm-6 col-md-3">
+      <form class="form-container">
+        <h3>Login</h3>
+        <hr>
+          <div class="form-group">
+            <input type="email" name="email" [(ngModel)]="loginCredential.emailId" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+            <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+          </div>
+          <div class="form-group">
+            <input type="password"  name="password" [(ngModel)]="loginCredential.password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+          </div>
+          <button type="submit" class="btn btn-success btn-block" (click)="loginUser()">Login</button>
+        </form>
+    </div>
+  </div>
+</div>
+

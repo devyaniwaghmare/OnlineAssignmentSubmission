@@ -1,0 +1,18 @@
+<form>
+    <div class="form-group">
+      <label for="subjectName">Subject</label>
+      <input type="text" class="form-control" id="subjectName" name="subjectName" placeholder="Enter subject name" [(ngModel)]="subjectName">
+     
+    </div>
+    <div class="form-group">
+      <label for="description">Description</label>
+      <input type="text" class="form-control" id="description" name="subjectDescription" placeholder="Enter description" [(ngModel)]="subjectDescription">
+    </div>
+    <button type="submit" class="btn btn-success" (click)="addNewSubject()">ADD SUBJECT</button>
+  </form>
+  <div class="alert alert-success" role="alert" *ngIf="flag1">
+   {{msg}}
+  </div>
+  <div class="alert alert-danger" role="alert" *ngIf="flag2">
+    {{msg}}
+  </div>

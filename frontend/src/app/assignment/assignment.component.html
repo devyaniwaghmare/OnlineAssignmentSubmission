@@ -1,0 +1,35 @@
+
+<div class="container">
+    <h1 style="color: #129EAF;">Hello {{faculty.firstName}}, Please add assignment here</h1><hr>
+    <div class="card">
+        <div class="card-header">
+          Featured
+        </div>
+        <div class="card-body">
+
+           <div class="form-group">
+  <label for="usr">Name:</label>
+  <input type="file" class="form-control-file border" (change)="onFileChanged($event)">
+   </div>
+
+   <div class="form-group">
+    <label for="usr">Instruction:</label>
+    <input type="text" class="form-control-file border" name="instruction" [(ngModel)]="instruction">
+     </div>
+
+     <div class="form-group">
+      <label for="usr">Due Date</label>
+      <input type="date" class="form-control-file border" name="dueDate" [(ngModel)]="dueDate"> 
+       </div>
+
+       <div class="form-group">
+        <label for="usr">Total Score</label>
+        <input type="number" class="form-control-file border" name="score" [(ngModel)]="score"> 
+         </div>
+
+          <a class="btn btn-primary" (click)="onUpload()">ADD</a>
+        </div>
+      </div>
+  </div>
+
+  

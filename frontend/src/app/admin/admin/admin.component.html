@@ -1,0 +1,135 @@
+<div class="container-fluids">
+    <div class="row">
+        <div class="col-3" style="height: 40px;" style="background-color: #8AB0F2;min-height: 550px;">
+            <div class="nav flex-column nav-tabs" id="v-tabs-tab"
+            role="tablist" aria-orientation="vertical">
+              <a class="nav-link active" id="v-tabs-subjects-tab" data-toggle="tab" href="#v-tabs-subject" role="tab">Subjects</a>
+              <a class="nav-link " id="v-tabs-course-tab" data-toggle="tab" href="#v-tabs-course" role="tab">Courses</a>
+              <a class="nav-link " id="v-tabs-faculty-tab" data-toggle="tab" href="#v-tabs-faculty" role="tab">Faculty</a>
+              <a class="nav-link " id="v-tabs-student-tab" data-toggle="tab" href="#v-tabs-students" role="tab">Students</a>
+              <a class="nav-link " id="v-tabs-facultyMap-tab" data-toggle="tab" href="#v-tabs-facultyMap" role="tab">Assign Tasks</a>
+            </div>
+        </div>
+        <div class="col-9">
+            <div class="tab-content" id="v-pills-tabContent">
+                <div class="tab-pane fade show active"
+                id="v-tabs-subject" role="tabpanel">  
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Subject Name</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let sub of subjectList">
+                         <td>{{sub.subjectName}}</td>
+                         <td>{{sub.description}}</td>
+                         <td>
+                             <button  class="btn btn-danger" (click)="deleteSubject(sub.subjectId)" >Delete</button>
+                         </td>
+                        </tr>
+                    </tbody>
+                    </table>
+                <button type="button" class="btn btn-primary" (click)="addSubject()">Add Subject</button>
+                </div>
+                <div class="tab-pane fade" id="v-tabs-course" role="tabpanel">  
+                    <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Course Name</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let course of courseList">
+                         <td>{{course.courseName}}</td>
+                         <td>Description</td>
+                         <td>
+                             <button  class="btn btn-danger" (click)="deleteCourse(course.courseId)">Delete</button>
+                             <button  (click)="updateCourse(course.courseId)" class="btn btn-warning" style="margin-left:10px;">Update</button>
+                             <button  (click)="courseDetails(course.courseId)" class="btn btn-info" style="margin-left:10px;">Details</button>
+                         </td>
+                        </tr>
+                    </tbody>
+                    </table>
+                    <button type="button" class="btn btn-primary" (click)=addCourse()>Add Course</button>
+                </div>
+                <!---------------------------faculty--------------------------->
+                <div class="tab-pane fade "
+                id="v-tabs-faculty" role="tabpanel">  
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>First Name</th>
+                            <th>Last Name</th>
+                            <th>Email</th>
+                            <th>Phone No.</th>
+                            <th>Gender</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let faculty of facultyList">
+                         <td>{{faculty.firstName}}</td>
+                         <td>{{faculty.lastName}}</td>
+                         <td>{{faculty.emailId}}</td>
+                         <td>{{faculty.phone}}</td>
+                         <td>{{faculty.gender}}</td>
+                         <td>
+                             <button  class="btn btn-danger" (click)="deleteFaculty(faculty.fid)">Delete</button>
+                             <button  (click)="updateFacultyDetails(faculty.fid)" class="btn btn-info" style="margin-left:10px;">Update</button>
+                         </td>
+                        </tr>
+                    </tbody>
+                    </table>
+                <button type="button" class="btn btn-primary" (click)="addNewFaculty()">Add Faculty</button>
+                </div>
+                 <!---------------------------Students--------------------------->
+                <div class="tab-pane fade "
+                id="v-tabs-students" role="tabpanel">  
+                <div class="row mt-5">
+                    <div class="col-md-4 mb-3" *ngFor="let course of courseList">
+                     <div class="card text-center">
+                         <div class="card-body">
+                             <h5 class="card-title">
+                             <h5>{{course.courseName}}</h5>
+                             </h5>
+                             <p class="card-text">
+                             <a class="btn btn-success" (click)="studentDetails(course.courseId)">Students</a>
+                             </p>
+                         </div>
+                    </div>
+                    </div>
+                 </div>
+                </div>
+
+                <!--Faculty course mapping-->
+                <div class="tab-pane fade "
+                id="v-tabs-facultyMap" role="tabpanel">  
+                 <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Faculty Name</th>
+                            <th>Course</th>
+                            <th>Subject</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let map of facultyMapping">
+                         <td>{{map.mid}}</td>
+                         <td>{{map.faculty.firstName}} {{map.faculty.lastName}}</td>
+                         <td>{{map.courses.courseName}}</td>
+                         <td>{{map.subject.subjectName}}</td>
+                         <td>
+                             <button  class="btn btn-danger" (click)="delteFacultyMapping(map.mid)">Delete</button>
+                             <button  (click)="updateFacultyMapping(map.mid)" class="btn btn-info" style="margin-left:10px;">Update</button>
+                         </td>
+                        </tr>
+                        <tr> <button  class="btn btn-info" (click)="addFacultyMapping()">ADD</button></tr>
+                    </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+     </div>
+</div>

@@ -1,0 +1,38 @@
+
+<div>
+<section>
+  <nav>
+    <!--<ul>
+      <li><a href="#">London</a></li>
+      <li><a href="#">Paris</a></li>
+      <li><a href="#">Tokyo</a></li>
+    </ul>-->
+    <ul>
+      <li><h1>Hello {{firstName}}</h1></li>
+      <li></li>
+    </ul>
+  </nav>
+  
+  <article  style="background-image: url('./assets/3.webp');">
+   <!--<h1>Assignment</h1>--> 
+
+
+    <div class="list-group" *ngFor="let assignment of assignments">
+      <a href="#" class="list-group-item list-group-item-action flex-column align-items-start active">
+        <div class="d-flex w-100 justify-content-between">
+          <h5 class="mb-1"> <a href="{{assignment.assignmentDocument}}" class="mb-1" style="color: white;">Assignment</a></h5>
+          <small>{{assignment.assignDate}}</small>
+          <small>{{assignment.dueDate}}</small>
+          <small>{{assignment.marks}}</small>
+          <button type="button" class="btn btn-success" (assignmentId)=assignment.assignmentId (click)="addAssignment(assignment.assignmentId)">ADD</button>
+        </div>
+        <p class="mb-1">{{assignment.instruction}}</p>
+      </a>
+<hr>
+
+
+
+      </div>
+  </article>
+</section>
+</div>

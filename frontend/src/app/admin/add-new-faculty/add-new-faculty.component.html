@@ -1,0 +1,32 @@
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item active" aria-current="page">ADD FACULTY DETAILS</li>
+    </ol>
+  </nav>
+<form>
+    <div class="form-group">
+      <label for="firstName">First Name</label>
+      <input type="text" class="form-control" id="firstName"  placeholder="Enter first name" name="firstName" [(ngModel)]="faculty.firstName">
+    </div>
+    <div class="form-group">
+      <label for="lastName">Last Name</label>
+      <input type="text" class="form-control" id="lastName" placeholder="Enter last name" name="lastName" [(ngModel)]="faculty.lastName">
+    </div>
+    <div class="form-group">
+        <label for="emailId">EMAIL ID</label>
+        <input type="text" class="form-control" id="emailId"  placeholder="Enter EmailId" name="emailId" [(ngModel)]="faculty.emailId">
+      </div>
+      <div class="form-group">
+        <label for="phone">Phone No.</label>
+        <input type="text" class="form-control" id="phone" placeholder="Enter Phone No." name="Phone" [(ngModel)]="faculty.phone">
+      </div>
+      <div class="form-group">
+        <label for="DOB">Birth Date</label>
+        <input type="date" class="form-control" id="DOB" placeholder="Enter DOB" name="DOB"   [(ngModel)]="faculty.DOB">
+      </div>
+      <div class="form-group">
+        <label for="gender">Gender</label>
+        <input type="text" class="form-control" id="gender" placeholder="Enter gender" name="gender" [(ngModel)]="faculty.gender">
+      </div>
+    <button type="submit" class="btn btn-success" (click)="addNewFaculty()">ADD</button>
+  </form>

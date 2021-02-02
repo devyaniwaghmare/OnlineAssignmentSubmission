@@ -1,0 +1,28 @@
+
+
+  <div class="card">
+    <div class="card-header ">
+      <!--<h3>{{course.courseId}}</h3>-->
+      <h3>{{course.courseName}}</h3>
+    </div>
+    <div >
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody *ngFor="let sub of course.subjects">
+          <tr>
+            <td>{{sub.subjectId}}</td>
+            <td>{{sub.subjectName}}</td>
+            <td>{{sub.subjectName}}</td>
+          </tr>
+          
+        </tbody>
+      </table>
+    </div>
+    
+  </div>

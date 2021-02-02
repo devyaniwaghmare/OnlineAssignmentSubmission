@@ -1,0 +1,16 @@
+
+  <div class="form-group">
+    <label for="text">CourseName:</label>
+    <input type="text" class="form-control" id="pwd"  required [(ngModel)]="courseName">
+  </div>
+  <h4>Choose Subjects</h4>
+  <div class="bg">
+    <div>
+      <div class="chiller_cb" *ngFor="let sub of subjectList">
+        <input type="checkbox"  (change)="onchange()" [(ngModel)]="sub.isselected">
+      <label for="myCheckbox">{{sub.subjectName}}</label>
+    </div>
+  </div>
+  <button type="button" class="btn btn-warning" (click)="addCourse()">ADD COURSE</button>
+
+  <!-- <input type="checkbox"  (change)="onchange()" [(ngModel)]="sub.isselected"><span>{{sub.subjectName}}</span>-->

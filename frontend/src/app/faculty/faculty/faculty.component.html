@@ -1,0 +1,24 @@
+<div class="container-fluids">
+    
+      <div class="alert alert-success" role="alert">
+        <h5>Hello,{{faculty.firstName}}</h5>
+      </div> 
+
+
+      <ul class="list-group" *ngFor="let a of facultyMapping">
+
+        <li class="list-group-item ">
+           <h5 class="card-title">{{a.subject.subjectName}}</h5>
+           <h6 class="card-subtitle mb-2 text-muted">{{a.subject.description}}</h6>
+           <div *ngIf="!a.status">
+            <a href="#" class="card-link"  routerLink="/addAssignment/{{a.faculty.fid}}/{{a.mid}}">ADD ASSIGNMENT</a>
+          </div>
+          <div *ngIf="a.status">
+            <a href="#" class="card-link"  routerLink="/SeeSubmissionComponent/{{a.faculty.fid}}//{{a.mid}}/{{a.subject.subjectName}}">SEE SUBMISSION</a>
+          </div>
+  
+          </li>
+        <hr>
+      </ul>
+
+</div>

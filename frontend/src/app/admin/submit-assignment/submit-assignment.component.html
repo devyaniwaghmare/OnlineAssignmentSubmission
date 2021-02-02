@@ -1,0 +1,27 @@
+
+<div class="container">
+    <h1 style="color: #129EAF;">Hello , Please Submit assignment here</h1><hr>
+    <div class="card">
+        <div class="card-header">
+         ADD HERE,
+        </div>
+        <div class="card-body">
+
+           <div class="form-group">
+  <label for="usr">Name:</label>
+  <input type="file" class="form-control-file border" name="selectedFile" (change)="onFileChanged($event)">
+   </div>
+
+   <div class="form-group">
+    <label for="usr">Comments:</label>
+    <input type="text" class="form-control-file border" name="comments" [(ngModel)]="comments" required>
+     </div>
+
+
+
+          <a class="btn btn-outline-success " (click)="submitAssignment()">ADD</a>
+        </div>
+      </div>
+  </div>
+
+  

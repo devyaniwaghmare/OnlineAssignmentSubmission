@@ -1,0 +1,19 @@
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Course Name</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let sub of subjectList">
+        <td>{{sub.subjectId}}</td>
+         <td>{{sub.subjectName}}</td>
+         <td>Description</td>
+         <td>
+             <button class="btn btn-info" style="margin-left:10px;" (click)=addSubjectToCourse(sub.subjectId)>ADD</button>
+         </td>
+        </tr>
+    </tbody>
+    
+    </table>

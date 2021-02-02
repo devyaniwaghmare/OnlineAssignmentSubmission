@@ -1,0 +1,25 @@
+<div class="form-group"> 
+    <label>Faculty</label>
+    <select class="custom-select"  name="faculty" [(ngModel)]="facultyId" >
+        <option  select>Select name</option>
+        <option *ngFor="let faculty of facultyList" value="{{faculty.fid}}">{{faculty.firstName}}  {{faculty.lastName}}</option>
+    </select>
+   </div>
+
+   <div class="form-group"> 
+    <label>Course</label>
+    <select class="custom-select"  name="course" [(ngModel)]="couserId" #course="ngModel" (change)="validateCourse(course.value)">
+        <option  selected>Select Course</option>
+        <option *ngFor="let course of coursList"  value="{{course.courseId}}">{{course.courseName}}</option>
+    </select>
+   </div>
+
+   
+   <div class="form-group" *ngIf="flag"> 
+    <label>Subjects</label>
+    <select class="custom-select"  name="subject" [(ngModel)]="subjectId">
+        <option  select>Select Subject</option>
+        <option *ngFor="let subject of subjectsList" value="{{subject.subjectId}}">{{subject.subjectName}}</option>
+    </select>
+   </div>
+   <tr> <button  class="btn btn-info" (click)="assignFaculty()">ADD</button></tr>

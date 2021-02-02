@@ -1,0 +1,11 @@
+nav{
+    margin:0 auto;
+    width:100%;
+    height:auto;
+    overflow:hidden;
+    margin-top: 0px;
+    bottom: 0px;
+    height: 50px;
+    padding-top: 20px;
+    position: relative;
+}
